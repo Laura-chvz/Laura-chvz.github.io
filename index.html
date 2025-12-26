@@ -1,0 +1,722 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Lift Power | Mantenimiento, Renta y Refacciones para Plataformas de Elevacion en Aguascalientes</title>
+    
+    <!-- Meta SEO -->
+    <meta name="description" content="Especialistas en mantenimiento preventivo, correctivo, refacciones y renta de plataformas de elevacion (Genie, JLG, Haulotte). Servicio en Aguascalientes y Bajio.">
+    <meta name="keywords" content="mantenimiento plataformas elevacion, renta genie aguascalientes, refacciones JLG, servicio tecnico plataformas, Lift Power">
+    
+    <!-- Tailwind CSS CDN -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    
+    <!-- Google Fonts: Inter (Reemplaza Roboto para usar la fuente predeterminada moderna) -->
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;700;900&display=swap" rel="stylesheet">
+    
+    <!-- FontAwesome Icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+
+    <style>
+        :root {
+            --brand-red: #D32F2F; /* Rojo Corporativo */
+        }
+        
+        body {
+            font-family: 'Inter', sans-serif;
+            scroll-behavior: smooth;
+        }
+        
+        /* Hero con superposicion oscura para legibilidad */
+        .hero-bg {
+            /* Imagen de fondo de alta resolucion de plataforma en obra */
+            background-image: linear-gradient(rgba(0, 0, 0, 0.7), rgba(0, 0, 0, 0.6)), url(https://i.postimg.cc/HxCL48KF/Foto_S65_Genie_Reacondicionada.jpg);
+            background-size: cover;
+            background-position: center top;
+            background-attachment: fixed;
+        }
+
+        .service-card {
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+        }
+        
+        .service-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 25px -5px rgba(0, 0, 0, 0.1), 0 10px 10px -5px rgba(0, 0, 0, 0.04);
+        }
+
+        /* Galeria de imagenes con efecto hover */
+        .gallery-item {
+            overflow: hidden;
+            border-radius: 0.5rem;
+            position: relative;
+        }
+        
+        .gallery-item img {
+            transition: transform 0.5s ease;
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+        
+        .gallery-item:hover img {
+            transform: scale(1.05);
+        }
+
+        /* Boton de WhatsApp flotante */
+        .float-wa {
+            position: fixed;
+            width: 60px;
+            height: 60px;
+            bottom: 30px;
+            right: 30px;
+            background-color: #25d366;
+            color: #FFF;
+            border-radius: 50px;
+            text-align: center;
+            font-size: 30px;
+            box-shadow: 0 4px 12px rgba(0,0,0,0.2);
+            z-index: 100;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            transition: all 0.3s;
+        }
+
+        .float-wa:hover {
+            transform: scale(1.1);
+            background-color: #20ba5a;
+        }
+        
+        /* Asegura que el navbar fijo ocupe todo el ancho del iframe */
+        .fixed-w-full {
+             width: 100%;
+             left: 0;
+             right: 0;
+             top: 0;
+        }
+    </style>
+</head>
+<body class="bg-gray-50 text-gray-800">
+
+    <!-- Navbar -->
+    <!-- Se ajusta el top:0 para la posicion fija -->
+    <nav class="bg-white shadow-md fixed fixed-w-full z-50 top-0">
+        <div class="container mx-auto px-4 py-2 flex justify-between items-center">
+            <!-- Logo -->
+            <a href="#inicio" class="flex items-center">
+                <!-- Se corrigio el atributo class y se cerro la etiqueta img -->
+                <img src="https://i.postimg.cc/9Xnd0R5G/3D_logo_Lift_Power.png" alt="Lift Power Logo" class="h-14 md:h-20 w-auto object-contain">
+            </a>
+            <!-- Desktop Menu -->
+            <div class="hidden md:flex space-x-8 font-medium text-gray-700">
+                <a href="#inicio" class="hover:text-red-600 transition">Inicio</a>
+                <a href="#nosotros" class="hover:text-red-600 transition">Nosotros</a>
+                <a href="#servicios" class="hover:text-red-600 transition">Servicios</a>
+                <a href="#galeria" class="hover:text-red-600 transition">Galeria</a>
+                <a href="#cobertura" class="hover:text-red-600 transition">Cobertura</a>
+                <a href="#contacto" class="hover:text-red-600 transition">Contacto</a>
+            </div>
+                <!-- CTA Button -->
+            <div class="hidden md:block">
+                <a href="https://wa.me/524492915408?text=Hola,%20me%20interesa%20una%20cotizacion" target="_blank" class="bg-red-700 hover:bg-red-800 text-white px-6 py-2 rounded-full font-bold transition shadow-lg flex items-center gap-2">
+                    <i class="fab fa-whatsapp"></i> Cotizar Ahora
+                </a>
+            </div>
+
+            <!-- Mobile Menu Button -->
+            <button id="mobile-menu-btn" class="md:hidden text-gray-800 text-2xl">
+                <i class="fas fa-bars" id="menu-icon"></i>
+            </button>
+        </div>
+
+        <!-- Mobile Menu Panel -->
+        <div id="mobile-menu" class="hidden md:hidden bg-white border-t p-4 flex flex-col space-y-4 shadow-lg absolute w-full top-full z-40">
+            <a href="#inicio" class="mobile-link block text-gray-700 font-medium">Inicio</a>
+            <a href="#nosotros" class="mobile-link block text-gray-700 font-medium">Nosotros</a>
+            <a href="#servicios" class="mobile-link block text-gray-700 font-medium">Servicios</a>
+            <a href="#galeria" class="mobile-link block text-gray-700 font-medium"> Galeria</a>
+            <a href="#cobertura" class="mobile-link block text-gray-700 font-medium">Cobertura</a>
+            <a href="#contacto" class="mobile-link block text-gray-700 font-medium">Contacto</a>
+            <a href="https://wa.me/524492915408?text=Hola,%20me%20interesa%20una%20cotizacion" target="_blank" class="mobile-link bg-red-700 text-white text-center py-2 rounded-lg font-bold">
+                <i class="fab fa-whatsapp"></i> Cotizar Ahora
+            </a>
+        </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <!-- pt-32 compensa la altura de la navbar fija y da mas espacio -->
+    <header id="inicio" class="hero-bg min-h-screen flex items-center justify-center text-center px-4 pt-32 pb-16">
+        <div class="max-w-4xl text-white relative z-10 sm:text-left">
+            <span class="bg-red-600 text-white px-3 py-1 rounded text-sm font-bold uppercase tracking-widest mb-4 inline-block">Renta & Mantenimiento</span>
+            <h1 class="text-4xl md:text-6xl font-black mb-6 drop-shadow-lg uppercase leading-tight">
+                soluciones integrales <br>para Plataformas<br> DE ELEVACION
+            </h1>
+            <p class="text-xl md:text-2xl mb-8 font-light drop-shadow-md text-gray-100">
+                Maximiza la vida util, seguridad y el desempeno de tus equipos con nuestros servicios especializados para la operacion exigente del dia a dia.
+            </p>
+            <div class="flex flex-col sm:flex-row gap-4 justify-start">
+                <a href="#servicios" class="bg-red-600 hover:bg-red-700 text-white px-8 py-4 rounded-lg font-bold text-lg transition shadow-lg transform hover:-translate-y-1">
+                    Ver Servicios
+                </a> 
+                <a href="#contacto" class="bg-white hover:bg-gray-100 text-gray-900 px-8 py-4 rounded-lg font-bold text-lg transition shadow-lg transform hover:-translate-y-1">
+                    Contactar
+                </a>
+            </div>
+        </div>
+    </header>
+
+    <!-- About Section with REAL Image -->
+    <section id="nosotros" class="py-16 bg-white">
+        <div class="container mx-auto px-4">
+            <div class="flex flex-col lg:flex-row items-center gap-12">
+                <div class="lg:w-1/2 relative group">
+                    <!-- Imagen Principal del Taller -->
+                    <div class="relative overflow-hidden rounded-xl shadow-2xl">
+                        <img src="https://i.postimg.cc/vTzt2XSV/DIAGNOSTICO_REPARACION_JLG.jpg "alt="Diagnostico y Reparacion de JLG" class="w-full object-cover transform transition duration-700 group-hover:scale-105">
+                        <div class="absolute inset-0 bg-gradient-to-t from-black/60 to-transparent"></div>
+                        <div class="absolute bottom-6 left-6 text-white">
+                            <p class="font-bold text-xl">Taller Especializado</p>
+                            <p class="text-sm opacity-90">Diagnostico y reparacion profesional</p>
+                        </div>
+                    </div>
+                    <!-- Imagen flotante pequena (Detalle motor) -->
+                    <img src="https://i.postimg.cc/FzZVCGnr/Mantenimiento_correctivo_motores_de_traccion_electricos.jpg" class="absolute -bottom-6 -right-6 w-40 h-32 md:w-48 md:h-36 object-cover rounded-lg shadow-xl border-4 border-white hidden md:block" alt="Mantenimiento correctivo motores de traccion electricos">
+                </div>
+                
+                <div class="lg:w-1/2">
+                    <h2 class="text-red-600 font-bold text-lg uppercase tracking-wider mb-2">Sobre Nosotros</h2>
+                    <h3 class="text-3xl md:text-4xl font-bold text-gray-900 mb-6">Expertos en Mantener tu Operacion Activa</h3>
+                    <p class="text-gray-600 mb-4 leading-relaxed text-lg">
+                        En <span class="font-bold text-gray-800">Lift Power</span> entendemos que cada hora cuenta. Somos especialistas en el mantenimiento preventivo y correctivo, venta de refacciones y renta de equipos de elevacion.
+                    </p>
+                    <p class="text-gray-600 mb-6 leading-relaxed">
+                        Nuestro equipo tecnico certificado trabaja directamente con las marcas lideres (Genie, JLG, Haulotte, Snorkel) para asegurar que tus equipos sean seguros y fiables.
+                    </p>
+                    
+                    <div class="grid grid-cols-2 gap-6 mt-8">
+                        <div class="border-l-4 border-red-500 pl-4">
+                            <span class="block text-2xl font-bold text-gray-900">100%</span>
+                            <span class="text-sm text-gray-500">Tecnicos Capacitados</span>
+                        </div>
+                        <div class="border-l-4 border-red-500 pl-4">
+                            <span class="block text-2xl font-bold text-gray-900">Bajio</span>
+                            <span class="text-sm text-gray-500">Cobertura Regional</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+    
+    <!-- Brands Banner -->
+    <div class="bg-gray-100 py-10">
+        <div class="container mx-auto px-4 text-center">
+            <p class="text-gray-500 font-bold uppercase tracking-widest mb-6 text-xs">Manejamos las mejores marcas</p>
+            <div class="flex flex-wrap justify-center gap-8 md:gap-16 opacity-50 grayscale hover:grayscale-0 transition duration-500">
+                <span class="text-3xl font-black text-gray-800 hover:text-blue-800">Genie</span>
+                <span class="text-3xl font-black text-gray-800 hover:text-orange-600">JLG</span>
+                <span class="text-3xl font-black text-gray-800 hover:text-yellow-500">Haulotte</span>
+                <span class="text-3xl font-black text-gray-800 hover:text-orange-500">Snorkel</span>
+                <span class="text-3xl font-black text-gray-800 hover:text-red-600">Skyjack</span>
+            </div>
+        </div>
+    </div>
+
+    <!-- Services Section -->
+    <section id="servicios" class="py-20 bg-gray-50">
+        <div class="container mx-auto px-4">
+            <div class="text-center mb-16">
+                <h2 class="text-red-600 font-bold text-lg uppercase tracking-wider mb-2">Nuestras Soluciones</h2>
+                <h3 class="text-3xl md:text-4xl font-bold text-gray-900">Servicios Integrales</h3>
+            </div>
+
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+                
+                <!-- Service 1: Mantenimiento Preventivo (Con Imagen) -->
+                <div class="service-card bg-white p-6 md:p-8 rounded-xl border border-gray-100 shadow-sm relative overflow-hidden group">
+                    <div class="h-40 overflow-hidden rounded-lg mb-4">
+                        <img src="https://i.postimg.cc/zXxkntgd/Mantenimiento_Preventivo_Haulotte_y_varias_marcas_mas.jpg" alt="Mantenimiento Preventivo Haulotte" class="w-full h-full object-cover transform transition duration-700 group-hover:scale-110">
+                    </div>
+                    <div class="w-10 h-10 bg-red-100 rounded-full flex items-center justify-center text-red-600 text-xl mb-4">
+                        <i class="fas fa-tools"></i>
+                    </div>
+                    <h4 class="text-xl font-bold text-gray-800 mb-3">Mantenimiento Preventivo</h4>
+                    <p class="text-gray-600 mb-4">Inspecciones programadas para evitar fallas futuras, prolongar la vida util del equipo y garantizar la seguridad del operador.</p>
+                    <ul class="text-sm text-gray-500 space-y-2">
+                        <li><i class="fas fa-check text-green-500 mr-2"></i>Cambio de fluidos y filtros</li>
+                        <li><i class="fas fa-check text-green-500 mr-2"></i>Revision de sistemas hidraulicos</li>
+                        <li><i class="fas fa-check text-green-500 mr-2"></i>Pruebas de funcionalidad</li>
+                    </ul>
+                </div>
+            
+                <!-- Service 2: Mantenimiento Correctivo (Solo Icono para enfoque en el texto) -->
+                <div class="service-card bg-white p-6 md:p-8 rounded-xl border border-gray-100 shadow-sm relative overflow-hidden group">
+                    <div class="h-40 overflow-hidden rounded-lg mb-4">
+                        <img src="https://i.postimg.cc/BbsCCRNs/Reparacion_frenos_y_motores_de_traccion_antes_y_despues.jpg" alt="Reparacion frenos y motores de traccion" class="w-full h-full object-cover transform transition duration-700 group-hover:scale-110">
+                    </div>
+                    <div class="w-10 h-10 bg-blue-100 rounded-full flex items-center justify-center text-blue-600 text-xl mb-4">
+                        <i class="fas fa-cogs"></i>
+                    </div>
+                    <h3 class="text-xl font-bold text-gray-800 mb-3">Mantenimiento Correctivo</h3>
+                    <p class="text-gray-600 mb-4">Diagnostico y reparacion agil de fallas inesperadas para minimizar el tiempo de inactividad de su maquinaria.</p>
+                    <ul class="text-sm text-gray-500 space-y-2">
+                        <li><i class="fas fa-check text-green-500 mr-2"></i>Atencion urgente</li>
+                        <li><i class="fas fa-check text-green-500 mr-2"></i>Diagnostico computarizado</li>
+                        <li><i class="fas fa-check text-green-500 mr-2"></i>Sustitucion de piezas danadas</li>
+                    </ul>
+                </div>
+            
+                <!-- Service 3 : Planes de mantenimiento -->
+                <div class="service-card bg-white p-8 rounded-xl border border-gray-100 shadow-lg relative overflow-hidden group">
+                    <div class="h-40 overflow-hidden rounded-lg mb-4">
+                        <img src='https://i.postimg.cc/50bsc89Y/planes-de-mantenimiento.jpg' alt="Planes de Mantenimiento Personalizados" class="w-full h-full object-cover transform transition duration-700 group-hover:scale-110">
+                    </div>
+                    <div class="w-10 h-10 bg-orange-100 rounded-full flex items-center justify-center text-orange-600 text-xl mb-4">
+                        <i class="fas fa-calendar-alt"></i>
+                    </div>
+                    <h3 class="text-xl font-bold text-gray-800 mb-3">Planes de Mantenimiento</h3>
+                    <p class="text-gray-600 mb-4">Disenamos planes a medida para flotillas o equipos individuales, asegurando el cumplimiento de normativas de seguridad.</p>
+                    <ul class="text-sm text-gray-500 space-y-2">
+                        <li><i class="fas fa-check text-green-500 mr-2"></i>Calendarizacion anual</li>
+                        <li><i class="fas fa-check text-green-500 mr-2"></i>Historial de servicio</li>
+                        <li><i class="fas fa-check text-green-500 mr-2"></i>Tarifas preferenciales</li>
+                    </ul>
+                </div>
+
+                <!-- Service 4: Renta de Plataformas (Con Imagen) -->
+                <div class="service-card bg-white p-6 md:p-8 rounded-xl border border-gray-100 shadow-sm relative overflow-hidden group">
+                    <div class="h-40 overflow-hidden rounded-lg mb-4">
+                        <img src="https://i.postimg.cc/7hVntXQP/Foto_de_stock_ejemplo_Renta_de_plataformas_de_Elevacion.jpg" alt="Renta de Plataformas de Elevacion" class="w-full h-full object-cover transform transition duration-700 group-hover:scale-110">
+                    </div>
+                    <div class="w-10 h-10 bg-orange-100 rounded-full flex items-center justify-center text-orange-600 text-xl mb-4">
+                        <i class="fas fa-truck-pickup"></i>
+                    </div>
+                    <h4 class="text-xl font-bold text-gray-900 mb-3">Renta de Plataformas (Tijera, Articulada, Telescopica) </h4>
+                    <p class="text-gray-600 mb-4">Flota moderna y verificada lista para tus proyectos.</p>
+                    <ul class="text-sm text-gray-500 space-y-2">
+                        <li><i class="fas fa-check text-green-500 mr-2"></i>Renta por dia, semana o mes</li>
+                        <li><i class="fas fa-check text-green-500 mr-2"></i>Equipos Genie y JLG</li>
+                        <li><i class="fas fa-check text-green-500 mr-2"></i>Soporte Tecnico</li>
+                    </ul>
+                    <p class="text-gray-600 mb-4">Tambien contamos con:</p>
+                    <ul class="text-sm text-gray-500 space-y-2"> 
+                        <li><i class="fas fa-check text-green-500 mr-2"></i> <strong>Montacargas, Torres de iluminacion</strong></li>
+                    </ul>
+                </div>
+                
+                <!-- Service 5: Venta de Refacciones (Solo Icono) -->
+                <div class="service-card bg-white p-6 md:p-8 rounded-xl border border-gray-100 shadow-sm relative overflow-hidden group">
+                    <div class="h-40 overflow-hidden rounded-lg mb-4">
+                        <img src="https://i.postimg.cc/mkRSSKjX/Venta_de_Refacciones_sobre_pedido.jpg" alt="Venta de Refacciones sobre pedido" class="w-full h-full object-cover transform transition duration-700 group-hover:scale-110">
+                    </div>
+                    <div class="w-10 h-10 bg-purple-100 rounded-full flex items-center justify-center text-purple-600 text-xl mb-4">
+                        <i class="fas fa-shopping-cart"></i>
+                    </div>
+                    <h4 class="text-xl font-bold text-gray-900 mb-3">Venta de Refacciones</h4>
+                    <p class="text-gray-600 text-sm">Repuestos originales y compatibles para Genie, JLG y mas.</p>
+                    <ul class="text-sm text-gray-500 space-y-2">
+                        <li><i class="fas fa-check text-green-500 mr-2"></i>Joysticks y tarjetas de control</li>
+                        <li><i class="fas fa-check text-green-500 mr-2"></i>Baterias de ciclo profundo</li>
+                        <li><i class="fas fa-check text-green-500 mr-2"></i>Llantas solidas (non-marking)</li>
+                        <li><i class="fas fa-check text-green-500 mr-2"></i>Filtros y kits de servicio</li>
+                    </ul>
+                </div>
+                
+                <!-- Service 6: Reacondicionamiento (Solo Icono) -->
+                <div class="service-card bg-white p-6 md:p-8 rounded-xl border border-gray-100 shadow-sm relative overflow-hidden group">
+                    <div class="h-40 overflow-hidden rounded-lg mb-4">
+                        <img src="https://i.postimg.cc/fyKfq5g4/Reacondicionamiento_de_plataformas_de_elevacio_GENIE_(S65)_y_JLG_Haullote_Snorquel_skyjack.jpg" alt="Reacondicionamiento de plataformas de elevacion" class="w-full h-full object-cover transform transition duration-700 group-hover:scale-110">
+                    </div>
+                    <div class="w-10 h-10 bg-green-100 rounded-full flex items-center justify-center text-green-600 text-xl mb-4">
+                        <i class="fas fa-recycle"></i>
+                    </div>
+                    <h4 class="text-xl font-bold text-gray-900 mb-3">Reacondicionamiento</h4>
+                    <p class="text-gray-600 text-sm">Transformamos equipos usados en maquinas operativas y seguras.</p>
+                    <p class="text-gray-600 text-sm mt-3 font-semibold">Nuestro servicio de reacondicionamiento incluye:</p>
+                    <ul class="text-sm text-gray-500 space-y-2">
+                        <li><i class="fas fa-check text-green-500 mr-2"></i>Pintura</li>
+                        <li><i class="fas fa-check text-green-500 mr-2"></i>Reparacion mecanica</li>
+                        <li><i class="fas fa-check text-green-500 mr-2"></i>Reparacion electrica</li>
+                        <li><i class="fas fa-check text-green-500 mr-2"></i>Estetica completa</li>
+                    </ul>
+                </div>
+                
+                <!-- Service 7: Asesoria Tecnica (Solo Icono) -->
+                <div class="service-card bg-white p-6 md:p-8 rounded-xl border border-gray-100 shadow-sm relative overflow-hidden group">
+                    <div class="h-40 overflow-hidden rounded-lg mb-4">
+                        <img src="https://i.postimg.cc/qqLxDQZC/Asesoria_Tecnica.jpg" alt="Asesoria Tecnica" class="w-full h-full object-cover transform transition duration-700 group-hover:scale-110">
+                    </div>
+                    <div class="w-10 h-10 bg-yellow-100 rounded-full flex items-center justify-center text-yellow-600 text-xl mb-4">
+                        <i class="fas fa-handshake"></i>
+                    </div>
+                    <h4 class="text-xl font-bold text-gray-900 mb-3">Asesoria Tecnica</h4> 
+                    <p class="text-gray-600 mb-4">Toma la mejor decision de inversion con ayuda de expertos.</p>
+                    <ul class="text-sm text-gray-500 space-y-2">
+                        <li><i class="fas fa-check text-green-500 mr-2"></i>Evaluacion de proyectos en altura</li>
+                        <li><i class="fas fa-check text-green-500 mr-2"></i>Recomendacion de equipo ideal (Tijera vs Articulada)</li>
+                        <li><i class="fas fa-check text-green-500 mr-2"></i>Inspeccion pre-compra de equipos usados</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    
+    </div>
+    
+    </div>
+    </section>
+
+    <!-- Gallery Section (Nuestra Flota) -->
+    <section id="galeria" class="py-20 bg-white">
+        <div class="container mx-auto px-4">
+            <div class="flex flex-col md:flex-row justify-between items-end mb-10">
+                
+               <h2 class="text-red-600 font-bold text-lg uppercase tracking-wider mb-2">Galeria</h2>
+                    <h3 class="text-3xl font-bold text-gray-900">Nuestra Flota y Trabajo</h3>
+                </div>
+                <div class="mt-4 md:mt-0">
+                    <p class="text-gray-500 italic">Equipos reales, soluciones reales.</p>
+                </div>
+            </div>
+
+            <!-- Grid Masonry Layout (4x2 structure) -->
+            <div class="grid grid-cols-2 md:grid-cols-4 grid-rows-2 gap-4 h-[600px] md:h-[500px]">
+                
+                <!-- Large Item (Vertical Boom Lift) -->
+                <div class="gallery-item col-span-2 row-span-2 md:col-span-1 md:row-span-2">
+                    <img src="https://i.postimg.cc/Hkj93w0m/Plataformas_de_elevacio_En_obra.jpg" alt="Plataformas de elevacion En obra">
+                    <div class="absolute bottom-0 left-0 w-full bg-gradient-to-t from-black/80 to-transparent p-4">
+                        <span class="text-white font-bold text-sm">Brazos Articulados</span>
+                    </div>
+                </div>
+
+                <!-- Wide Item (Scissor Lift) -->
+                <div class="gallery-item col-span-2 md:col-span-2 row-span-1">
+                    <img src="https://i.postimg.cc/v8LhmHHR/GS3246_Flota.jpg" alt="GS3246 Flota">
+                    <div class="absolute bottom-0 left-0 w-full bg-gradient-to-t from-black/80 to-transparent p-4">
+                        <span class="text-white font-bold text-sm">Plataformas de Tijera</span>
+                    </div>
+                </div>
+
+                <!-- Wide Item (montacargas-torre de iluminacion) -->
+                <div class="gallery-item col-span-2 md:col-span-2 row-span-1">
+                    <img src="https://i.postimg.cc/sxkWRNr4/Montacargas-y-torres-de-iluminacion.jpg" alt="Montacargas-y-torres-de-iluminacion">
+                    <div class="absolute bottom-0 left-0 w-full bg-gradient-to-t from-black/80 to-transparent p-4">
+                        <span class="text-white font-bold text-sm"> Montacargas y torres de iluminacion </span>
+                    </div>
+                </div>
+
+                <!-- Standard Item (JLG Warehouse) -->
+                <div class="gallery-item col-span-1 row-span-1">
+                    <img src="https://i.postimg.cc/MZb5GKK2/JLG_en_Almacen_Diagnostico_Y_reparacion.jpg" alt="JLG en Almacen Diagnostico Y reparacion">
+                </div>
+
+                <!-- Standard Item (genie Repair) -->
+                <div class="gallery-item col-span-1 row-span-1">
+                    <!-- Se corrigio el cierre de la etiqueta img -->
+                    <img src="https://i.postimg.cc/C5Y4497r/Reparacion_maquinaria_de_elevacion_SCISSOR_Lift_Genie.jpg" alt="Reparacion maquinaria de elevacion SCISSOR Lift Genie">
+                    <div class="absolute bottom-0 left-0 w-full bg-gradient-to-t from-black/80 to-transparent p-4">
+                        <span class="text-white font-bold text-sm">Servicio en Sitio</span>
+                    </div>
+                </div>
+            </div>
+            
+            <!-- Extra strip for details (Horizontal items) -->
+            <div class="grid grid-cols-2 md:grid-cols-4 gap-4 mt-4">
+                <!-- Se corrigio la clase del div, cerrando la comilla -->
+                <div class="gallery-item h-40 group">
+                    <!-- Se corrigio el cierre de la etiqueta img y la clase -->
+                    <img src="https://i.postimg.cc/wTWtCdwp/GENIE_Z6234_HASTA_TU_PROYECTO.jpg" alt="GENIE Z6234 HASTA TU PROYECTO" class="w-full h-full object-cover">
+                    <div class="absolute inset-0 bg-black/40 flex items-center justify-center opacity-0 group-hover:opacity-100 transition duration-300">
+                        <span class="text-white font-bold text-center p-2">GENIE Z-62/34<br>Hasta tu proyecto</span>
+                    </div>
+                </div>
+                <div class="gallery-item h-40 group">
+                    <img src="https://i.postimg.cc/QCsqqvmn/Diagnostico_preciso_Ajuste_y_o_calibracion_de_equipos_Genie_JLG_y_mas.jpg" alt="Diagnostico preciso Ajuste y/o calibracion" class="w-full h-full object-cover">
+                    <div class="absolute inset-0 bg-black/40 flex items-center justify-center opacity-0 group-hover:opacity-100 transition duration-300">
+                        <span class="text-white font-bold text-center p-2">Diagnostico y Calibracion</span>
+                    </div>
+                </div>
+                <div class="gallery-item h-40 group">
+                    <img src="https://i.postimg.cc/kXJcR3BR/Kit_de_repuestos_y_Refacciones_Para_Maquinaria_de_Elevacion_Genie_JLG_skyjack_Snorkel_Haulotte_Up_Ri.jpg" alt="Kit de repuestos y Refacciones" class="w-full h-full object-cover">
+                    <div class="absolute inset-0 bg-black/40 flex items-center justify-center opacity-0 group-hover:opacity-100 transition duration-300">
+                        <span class="text-white font-bold text-center p-2">Refacciones para todas las marcas</span>
+                    </div>
+                </div>
+                <div class="gallery-item h-40 bg-gray-100 flex items-center justify-center text-center p-4 cursor-pointer hover:bg-gray-200 transition">
+                    <a href="https://wa.me/524492915408" target="_blank" class="text-red-600 font-bold">
+                        Solicitar <br> Catalogo <i class="fas fa-arrow-right ml-2"></i>
+                    </a>
+                </div>
+            </div>
+        </div>
+        </div>
+    </div>
+    </div>
+    </section>
+    
+    <!-- Zona de Cobertura Section -->
+    <section id="cobertura" class="bg-gray-100 py-20 border-withe">
+         <div class="bg-white py-10 max-w-7xl mx-auto px-4 text-center"
+            <h2 class="text-red-600 font-bold text-lg uppercase tracking-wider mb-2">Alcance</h2>
+            <h3 class="text-3xl font-bold text-gray-900 mb-10">Zona de Cobertura Principal (Bajio)</h3>
+  
+         <div class="max-w-7xl mx-auto px-4 text-center">          
+            <div class="flex flex-wrap justify-center gap-4">
+                <div class="bg-red-50 px-6 py-4 rounded-lg border border-red-200 shadow-md flex items-center gap-3">
+                    <i class="fas fa-map-marker-alt text-red-600"></i>
+                    <span class="font-bold text-red-800">Aguascalientes (Sede)</span>
+                </div>
+                <div class="bg-white px-6 py-4 rounded-lg border border-gray-100 shadow-sm flex items-center gap-3">
+                    <i class="fas fa-map-pin text-gray-400"></i>
+                    <span class="text-gray-600">San Luis Potosi</span>
+                </div>
+                <div class="bg-white px-6 py-4 rounded-lg border border-gray-100 shadow-sm flex items-center gap-3">
+                    <i class="fas fa-map-pin text-gray-400"></i>
+                    <span class="text-gray-600">Guanajuato</span>
+                </div>
+                <div class="bg-white px-6 py-4 rounded-lg border border-gray-100 shadow-sm flex items-center gap-3">
+                    <i class="fas fa-map-pin text-gray-400"></i>
+                    <span class="text-gray-600">Queretaro</span>
+                </div>
+                <div class="bg-white px-6 py-4 rounded-lg border border-gray-100 shadow-sm flex items-center gap-3">
+                    <i class="fas fa-map-pin text-gray-400"></i>
+                    <span class="text-gray-600">Jalisco</span>
+                </div>
+                <div class="bg-white px-6 py-4 rounded-lg border border-gray-100 shadow-sm flex items-center gap-3">
+                    <i class="fas fa-map-pin text-gray-400"></i>
+                    <span class="text-gray-600">Zacatecas</span>
+                </div>
+            </div>
+        </div>
+
+            <div class="max-w-7xl mx-auto px-4 text-center">      
+                <div clas="lg:w-1/2 p-4 md:p-8">
+                    <h4 class="text-2xl font-bold text-gray-800 mb-4">Encuentranos</h4>
+                    <div class="h-64 rounded-xl overflow-hidden shadow-inner border border-gray-200">
+                        <!-- Placeholder para Mapa de Google Maps de Aguascalientes -->
+                        <iframe
+                            src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d118932.74411132715!2d-102.38531201550904!3d21.8996611413158!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x8429ee62886f77cd%3A0x6b47c05b81b7e41!2sAguascalientes%2C%20Ags.!5e0!3m2!1sen!2smx!4v1700000000000!5m2!1sen!2smx"
+                            width="100%" height="100%" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade" aria-label="Ubicacion de Lift Power en Aguascalientes">
+                        </iframe>
+                    </div>
+                </div>
+            </div>
+    </section>
+
+    <!-- Contact Section -->
+    <section id="contacto" class="py-20 border-t bg-white ">
+        <div class="container mx-auto px-4">
+            <div class="text-center mb-12">
+                <h2 class="text-red-600 font-bold text-lg uppercase tracking-wider mb-2">Contactanos</h2>
+                <h3 class="text-3xl md:text-4xl font-bold text-gray-900">¿Listo para comenzar?</h3>
+            </div>
+
+            <div class="flex flex-col lg:flex-row gap-8 max-w-6xl mx-auto bg-gray-50 rounded-2xl shadow-xl overflow-hidden">
+  
+                <!-- Contact Info (Lado Izquierdo) -->
+                <div class="lg:w-1/2 p-10 bg-gray-800 text-white flex flex-col justify-center">
+                    <h4 class="text-2xl font-bold mb-8">Informacion de Contacto</h4>
+                    <div class="space-y-8">
+                        <!-- WhatsApp -->
+                        <a href="https://wa.me/524492915408" target="_blank" class="flex items-start group">
+                            <div class="bg-red-600 p-3 rounded-lg group-hover:bg-red-500 transition">
+                                <i class="fab fa-whatsapp text-2xl"></i>
+                            </div>
+                            <div class="ml-4">
+                                <p class="text-gray-400 text-sm">WhatsApp / Telefono</p>
+                                <p class="text-xl font-bold">449 291 5408</p>
+                            </div>
+                        </a>
+                        <!-- Email -->
+                        <!-- Se completo la etiqueta 'a' que estaba incompleta -->
+                        <a href="mailto:soporte-tecnico@liftpower.net" class="flex items-start group">
+                            <div class="bg-red-600 p-3 rounded-lg group-hover:bg-red-500 transition">
+                                 <i class="fas fa-envelope text-2xl"></i>
+                            </div>
+                            <div class="ml-4">
+                                 <p class="text-gray-400 text-sm">Correo Electronico</p>
+                                 <p class="text-xl font-bold">soporte-tecnico@liftpower.net</p>
+                            </div>
+                        </a>
+                        <!-- Address -->
+                        <div class="flex items-start group">
+                            <div class="bg-red-600 p-3 rounded-lg">
+                                <i class="fas fa-map-marker-alt text-2xl"></i>
+                            </div>
+                            <div class="ml-4">
+                                <p class="text-gray-400 text-sm">Ubicacion</p>
+                                <p class="text-xl font-bold">Aguascalientes, Ags.</p>
+                                <p class="text-sm text-gray-400">Servicio regional en el Bajio.</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                               <!-- Columna Formulario -->
+                <div class="lg:w-1/2 p-4 md:p-8">
+                    <h3 class="text-2xl font-bold text-gray-800 mb-6">Envianos un mensaje</h3>
+                    
+                    <form id="contactForm" class="space-y-5">
+                        <div>
+                            <label class="block text-sm font-medium text-gray-700 mb-1">Nombre</label>
+                            <input type="text" id="name" required class="w-full px-4 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-brand-orange focus:border-transparent outline-none transition" placeholder="Tu nombre o empresa">
+                        </div>
+                        
+                        <div class="grid grid-cols-1 md:grid-cols-2 gap-5">
+                            <div>
+                                <label class="block text-sm font-medium text-gray-700 mb-1">Telefono</label>
+                                <input type="tel" id="phone" required class="w-full px-4 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-brand-orange focus:border-transparent outline-none transition" placeholder="10 digitos">
+                            </div>
+                            <div>
+                                <label class="block text-sm font-medium text-gray-700 mb-1">Correo</label>
+                                <input type="email" id="email" required class="w-full px-4 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-brand-orange focus:border-transparent outline-none transition" placeholder="tu@email.com">
+                            </div>
+                        </div>
+
+                        <div>
+                            <label class="block text-sm font-medium text-gray-700 mb-1">Mensaje</label>
+                            <textarea id="message" rows="3" required class="w-full px-4 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-brand-orange focus:border-transparent outline-none transition" placeholder="¿Como podemos ayudarte?"></textarea>
+                        </div>
+                        </div>
+        </div>
+        </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Footer -->
+ <footer class="bg-gray-900 text-white py-8">
+   <div class="container mx-auto px-6 py-8">
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-6 text-center md:text-left">
+                
+                <!-- Columna 1: Logo y Eslogan -->
+                <div>
+                    <a href="#inicio" class="text-3xl flex items-center justify-center md:justify-start mb-2">
+                        <img src="https://i.postimg.cc/K4WLCW7b/Logo_Principal_LIFT_POWER.jpg" alt="Logo_Principal_LIFT_POWER" class="m:2 h:2">
+                    </a>
+                    <p class="text-white text-sm">Elevando tus proyectos con seguridad y eficiencia.</p>
+                </div>
+
+                <!-- Columna 2: Navegacion Rapida -->
+                <div>
+                    <h5 class="text-lg font-semibold mb-3 text-white border-b border-blue-400 inline-block pb-1">Menu</h5>
+                    <ul class="space-y-2 text-gray-400">
+                        <li><a href="#servicios" class="hover:text-white transition duration-300">Servicios</a></li>
+                        <li><a href="#refacciones" class="hover:text-white transition duration-300">Refacciones</a></li>
+                        <li><a href="#contacto" class="hover:text-white transition duration-300">Contacto</a></li>
+                    </ul>
+                </div>
+
+                <!-- Columna 3: Contacto Footer -->
+                <div>
+                    <h5 class="text-lg font-semibold mb-3 text-white border-b border-blue-400 inline-block pb-1">Contactanos</h5>
+                    <ul class="space-y-2 text-gray-400">
+                        <li><i class="fas fa-phone mr-2 text-white"></i> <a href="tel:+524492915408" class="hover:text-white transition duration-300">+52 449 291 5408</a></li>
+                        <li><i class="fas fa-envelope mr-2 text-white"></i> <a href="mailto:soporte-tecnico@liftpower.net" class="hover:text-blue-400 transition duration-300">soporte-tecnico@liftpower.net</a></li>
+                        <li><i class="fas fa-map-marker-alt mr-2 text-white"></i> Aguascalientes, Ags.</li>
+                    </ul>
+                </div>
+            </div>
+</footer>            
+                <!-- Legal Notice Section (New) -->
+ 
+ <footer class="bg-gray-900 text-white py-8">
+        <div class="container mx-auto px-4 text-center text-sm">
+<div class="border-t border-gray-800 pt-4 mt-4">
+
+            <p>&copy; 2025 Lift Power. Todos los derechos reservados.</p>
+            <p class="mt-2 text-gray-500">Mantenimiento, Renta y Refacciones para Plataformas de Elevacion.</p>
+        </div>
+   
+            <div class="border-t border-gray-800 pt-8 mt-8">
+                <h5 class="text-gray-300 font-bold text-sm mb-2"> AVISO LEGAL Y DE MARCAS REGISTRADAS </h5>
+                <p class="text-xs text-gray-600 leading-relaxed text-justify md:text-left">
+                   Lift Power es una empresa independiente especializada en el servicio, mantenimiento, renta y venta de equipos de elevacion. No estamos afiliados, autorizados, respaldados ni asociados directamente con Genie Industries, JLG Industries, Haulotte Group, Snorkel International, UpRight Powered Access ni ninguna de sus subsidiarias o afiliadas, a menos que se indique expresamente lo contrario.
+Los nombres comerciales, marcas registradas, logotipos y nombres de modelos mencionados en este sitio web (incluyendo, pero no limitado a, Genie®, JLG®, Haulotte®, Snorkel™ y UpRight™) son propiedad exclusiva de sus respectivos duenos. El uso de estas marcas en este sitio web se realiza unicamente con fines informativos y de identificacion para describir la compatibilidad de nuestros servicios de mantenimiento, refacciones y equipos, de conformidad con las practicas comerciales leales.
+                </p>
+            </div>
+    </footer>
+          
+    <!-- Floating WhatsApp Button -->
+    <a href="https://wa.me/524492915408?text=Necesito%20una%20cotizacion%20de%20mantenimiento." class="float-wa" target="_blank" aria-label="Contactar por WhatsApp">
+        <i class="fab fa-whatsapp"></i>
+    </a>
+    
+    <!-- JavaScript for Mobile Menu and Scroll Offset -->
+    <script>
+        document.addEventListener('DOMContentLoaded', () => {
+            const mobileMenuBtn = document.getElementById('mobile-menu-btn');
+            const mobileMenu = document.getElementById('mobile-menu');
+            const menuIcon = document.getElementById('menu-icon');
+            const mobileLinks = document.querySelectorAll('.mobile-link');
+            // Altura aproximada del navbar fijo (h-20 en desktop, h-14 en mobile, mas padding)
+            const fixedNavHeight = 100; 
+
+            // 1. Toggle Mobile Menu
+            mobileMenuBtn.addEventListener('click', () => {
+                mobileMenu.classList.toggle('hidden');
+                menuIcon.classList.toggle('fa-bars');
+                menuIcon.classList.toggle('fa-times'); // Cambia a icono de cerrar
+            });
+
+            // 2. Hide Mobile Menu on Link Click
+            mobileLinks.forEach(link => {
+                link.addEventListener('click', (e) => {
+                    // Cierra el menu
+                    mobileMenu.classList.add('hidden');
+                    menuIcon.classList.remove('fa-times');
+                    menuIcon.classList.add('fa-bars');
+
+                    // Llama a la funcion de scroll con offset
+                    handleSmoothScroll(e, link.getAttribute('href'), fixedNavHeight);
+                });
+            });
+
+            // 3. Universal Smooth Scroll and Fixed Header Offset Handler
+            const handleSmoothScroll = (e, targetId, offset) => {
+                e.preventDefault();
+                
+                const targetElement = document.querySelector(targetId);
+
+                if (targetElement) {
+                    // Calcular la posicion ajustada por la altura del navbar fijo
+                    const targetPosition = targetElement.getBoundingClientRect().top + window.scrollY - offset;
+                    
+                    window.scrollTo({
+                        top: targetPosition,
+                        behavior: 'smooth'
+                    });
+                }
+            }
+
+            // Aplica el scroll a los links de escritorio
+            document.querySelectorAll('.container.mx-auto > div > a[href^="#"]').forEach(anchor => {
+                anchor.addEventListener('click', function (e) {
+                    // Los links moviles ya son manejados por mobileLinks.forEach
+                    if (this.closest('#mobile-menu')) return; 
+                    handleSmoothScroll(e, this.getAttribute('href'), fixedNavHeight);
+                });
+            });
+
+            // 4. Ajustar scroll si la pagina carga con un hash (URL#seccion)
+            if (window.location.hash) {
+                const targetId = window.location.hash;
+                const targetElement = document.querySelector(targetId);
+                if (targetElement) {
+                    // Pequeno timeout para asegurar que el DOM este renderizado antes de calcular la posicion
+                    setTimeout(() => {
+                        const targetPosition = targetElement.getBoundingClientRect().top + window.scrollY - fixedNavHeight;
+                        window.scrollTo({
+                            top: targetPosition,
+                            behavior: 'smooth'
+                        });
+                    }, 100); 
+                }
+            }
+
+        });
+    </script>
+
+</body>
+</html>
